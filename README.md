@@ -23,7 +23,7 @@ Este trabalho propõe a modelagem de um banco de dados para uma academia.
 
 - [Código de criação do BD](./data/codigo_criacao_banco.sql)
 
-Colocar todas as tabelas do banco no seguinte padrão:
+
 
 1. Tabela membro (Cadastro de Membros)
 
@@ -43,6 +43,16 @@ Colocar todas as tabelas do banco no seguinte padrão:
 | nome | VARCHAR | Nome Completo |
 | cargo | VARCHAR | Cargo |
 | salario | INT | Salário |
+
+3.Tabela aula (Aulas Disponiveis)
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| codigo| INT | Código de aula (PK) |
+| nome| VARCHAR | Nome Da Aula |
+| horario| VARCHAR| Horário|
+| capacidade| INT | Capacidade Máxima|
+
+4.Tabela pagamento(Registro de Pagamentos)
 
 
 5. Tabela equipamento (Controle de Equipamentos)
