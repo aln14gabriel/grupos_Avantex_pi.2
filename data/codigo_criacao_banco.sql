@@ -1,5 +1,8 @@
 -- Coloque neste arquivo todo o código de criação do banco de dados
 
+--Criando tabela
+CREATE DATABASE academia;
+
 -- Tabela 'membro'
 CREATE TABLE membro (
     id INT PRIMARY KEY,
