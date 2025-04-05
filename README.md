@@ -7,10 +7,12 @@
 
 | Alunos |
 |--------|
-| Aluno 1 |
-| Aluno 2 |
-| Aluno 3 |
-
+| Allan Gabriel|
+| Davi |
+| George|
+| Ruan Vinicius |
+| Adriano Santos  |
+| Guilherme melo |
 ## Introdução
 
 Descrever todo o projeto, o que será desenvolvido e qual a finalidade.
