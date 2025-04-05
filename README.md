@@ -3,7 +3,7 @@
 ### Faculdade Alpha
 ### Professor: Rafael Marinho dos Anjos
 
-### Equipe:
+### Equipe: Avantex
 
 | Alunos |
 |--------|
