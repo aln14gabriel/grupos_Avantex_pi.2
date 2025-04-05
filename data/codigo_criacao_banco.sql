@@ -1,6 +1,6 @@
 -- Coloque neste arquivo todo o código de criação do banco de dados
 
---Criando tabela
+--Criando Banco de dados
 CREATE DATABASE academia;
 
 -- Tabela 'membro'
