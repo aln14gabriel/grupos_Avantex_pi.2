@@ -8,8 +8,8 @@
 | Alunos |
 |--------|
 | Allan Gabriel|
-| Davi |
-| George|
+| Davi Monteiro |
+| George Cristovão|
 | Ruan Vinicius |
 | Adriano Santos  |
 | Guilherme melo |
