@@ -16,7 +16,7 @@
 ## Introdução
 
 Este trabalho propõe a modelagem de um banco de dados para uma academia.
-. O sistema foi estruturado com base em um minimundo que reflete as necessidades reais de uma academia, mapeando entidades (como membro, aula, pagamento), atributos (nome, CPF, horários) e relacionamentos (ex: membros vinculados a aulas).
+. O sistema foi estruturado com base em um minimundo que reflete as necessidades reais de uma academia, mapeando entidades (como membro, aula, pagamento), atributos (nome, CPF, horários).
 
 
 ## Banco de dados
