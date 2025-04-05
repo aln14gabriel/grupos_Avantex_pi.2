@@ -44,7 +44,7 @@ Este trabalho propõe a modelagem de um banco de dados para uma academia.
 | cargo | VARCHAR | Cargo |
 | salario | INT | Salário |
 
-3.Tabela aula (Aulas Disponiveis)
+3. Tabela aula (Aulas Disponiveis)
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
@@ -53,7 +53,7 @@ Este trabalho propõe a modelagem de um banco de dados para uma academia.
 | horario| VARCHAR| Horário|
 | capacidade| INT | Capacidade Máxima|
 
-4.Tabela pagamento(Registro de Pagamentos)
+4. Tabela pagamento(Registro de Pagamentos)
 
 | Coluna  | Tipo     | Descrição                   |
 |---------|----------|-----------------------------|
@@ -63,7 +63,7 @@ Este trabalho propõe a modelagem de um banco de dados para uma academia.
 | status| VARCHAR| Status|
 
 
-5.Tabela equipamento (Controle de Equipamentos)
+5. Tabela equipamento (Controle de Equipamentos)
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
