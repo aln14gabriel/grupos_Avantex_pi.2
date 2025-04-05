@@ -53,6 +53,12 @@ Este trabalho propõe a modelagem de um banco de dados para uma academia.
 | capacidade| INT | Capacidade Máxima|
 
 4.Tabela pagamento(Registro de Pagamentos)
+| Coluna  | Tipo     | Descrição                   |
+|---------|----------|-----------------------------|
+| id  | INT  | ID único (PK)|
+| membro_id| INT| ID do membro (FK)|
+| valor| INT | Valor em centavos|
+| status| VARCHAR| Status|
 
 
 5. Tabela equipamento (Controle de Equipamentos)
