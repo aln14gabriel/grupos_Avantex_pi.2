@@ -23,7 +23,7 @@ Descrever todo o projeto, o que será desenvolvido e qual a finalidade.
 
 Colocar todas as tabelas do banco no seguinte padrão:
 
-- Tabela 1:
+1. Tabela membro (Cadastro de Membros)
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
@@ -33,6 +33,7 @@ Colocar todas as tabelas do banco no seguinte padrão:
 | plano | VARCHAR | Tipo de plano |
 | data_inicio | VARCHAR | Data de inicio do plano |
 
+2. Tabela funcionario (Cadastro de Funcionários)
 
 | Coluna  | Tipo     | Descrição                   |
 |---------|----------|-----------------------------|
@@ -40,4 +41,15 @@ Colocar todas as tabelas do banco no seguinte padrão:
 | nome | VARCHAR | Nome Completo |
 | cargo | VARCHAR | Cargo |
 | salario | INT | Salário |
+
+
+5. Tabela equipamento (Controle de Equipamentos)
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| id | INT | ID único  (PK) |
+| nome | VARCHAR | Nome do equipamento |
+| status | VARCHAR | Status |
+
+
 
