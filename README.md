@@ -27,12 +27,17 @@ Colocar todas as tabelas do banco no seguinte padrão:
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
-| col_1 | varchar | Coluna de texto |
-| col_2 | int | Coluna de números inteiros |
+| id | INT | ID único do membro (PK) |
+| nome | VARCHAR | Nome Completo |
+| cpf | VARCHAR | CPF (único) |
+| plano | VARCHAR | Tipo de plano |
+| data_inicio | VARCHAR | Data de inicio do plano |
 
 
 | Coluna  | Tipo     | Descrição                   |
 |---------|----------|-----------------------------|
-| col_1   | varchar  | Coluna de                   |
-| col_2   | int      | Coluna de números inteiros  |
+| id | INT | ID único (PK) |
+| nome | VARCHAR | Nome Completo |
+| cargo | VARCHAR | Cargo |
+| salario | INT | Salário |
 
