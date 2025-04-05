@@ -30,3 +30,9 @@ Colocar todas as tabelas do banco no seguinte padrão:
 | col_1 | varchar | Coluna de texto |
 | col_2 | int | Coluna de números inteiros |
 
+
+| Coluna  | Tipo     | Descrição                   |
+|---------|----------|-----------------------------|
+| col_1   | varchar  | Coluna de                   |
+| col_2   | int      | Coluna de números inteiros  |
+
