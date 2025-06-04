@@ -1,83 +1,58 @@
-package src.dao;
+package src.model;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import src.model.Funcionario;
+public class Funcionario {
+    private int id;
+    private String nome;
+    private String cargo;
+    private int salario;
 
-public class FuncionarioDAO {
-    public void create(Funcionario funcionario) {
-        String sql = "INSERT INTO funcionario (nome, cargo, salario) VALUES (?, ?, ?)";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getCargo());
-            stmt.setInt(3, funcionario.getSalario());
-
-            stmt.executeUpdate();
-
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
-                    funcionario.setId(rs.getInt(1));
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao criar funcionário", e);
-        }
+    public Funcionario(int id, String nome, String cargo, int salario) {
+        this.id = id;
+        this.nome = nome;
+        this.cargo = cargo;
+        this.salario = salario;
     }
 
-    public List<Funcionario> readAll() {
-        String sql = "SELECT * FROM funcionario";
-        List<Funcionario> funcionarios = new ArrayList<>();
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Funcionario funcionario = new Funcionario(
-                        rs.getInt("id"),
-                        rs.getString("nome"),
-                        rs.getString("cargo"),
-                        rs.getInt("salario"));
-                funcionarios.add(funcionario);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao ler funcionários", e);
-        }
-
-        return funcionarios;
+    // Getters e Setters
+    public int getId() {
+        return id;
     }
 
-    public void update(Funcionario funcionario) {
-        String sql = "UPDATE funcionario SET nome = ?, cargo = ?, salario = ? WHERE id = ?";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getCargo());
-            stmt.setInt(3, funcionario.getSalario());
-            stmt.setInt(4, funcionario.getId());
-
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao atualizar funcionário", e);
-        }
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void delete(int id) {
-        String sql = "DELETE FROM funcionario WHERE id = ?";
+    public String getNome() {
+        return nome;
+    }
 
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao deletar funcionário", e);
-        }
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", salario=" + salario +
+                '}';
     }
 }
