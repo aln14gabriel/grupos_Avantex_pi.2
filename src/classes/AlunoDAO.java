@@ -1,78 +1,58 @@
-package src.dao;
+package src.model;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import src.model.Aluno;
+public class Aluno {
+    private String nome;
+    private String cpf;
+    private String plano;
+    private String dataInicio;
 
-public class AlunoDAO {
-    public void create(Aluno aluno) {
-        String sql = "INSERT INTO aluno (nome, cpf, plano, data_inicio) VALUES (?, ?, ?, ?)";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, aluno.getNome());
-            stmt.setString(2, aluno.getCpf());
-            stmt.setString(3, aluno.getPlano());
-            stmt.setString(4, aluno.getDataInicio());
-
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao criar aluno", e);
-        }
+    public Aluno(String nome, String cpf, String plano, String dataInicio) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.plano = plano;
+        this.dataInicio = dataInicio;
     }
 
-    public List<Aluno> readAll() {
-        String sql = "SELECT * FROM aluno";
-        List<Aluno> alunos = new ArrayList<>();
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Aluno aluno = new Aluno(
-                        rs.getString("nome"),
-                        rs.getString("cpf"),
-                        rs.getString("plano"),
-                        rs.getString("data_inicio"));
-                alunos.add(aluno);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao ler alunos", e);
-        }
-
-        return alunos;
+    // Getters e Setters
+    public String getNome() {
+        return nome;
     }
 
-    public void update(Aluno aluno, String cpf) {
-        String sql = "UPDATE aluno SET nome = ?, plano = ?, data_inicio = ? WHERE cpf = ?";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, aluno.getNome());
-            stmt.setString(2, aluno.getPlano());
-            stmt.setString(3, aluno.getDataInicio());
-            stmt.setString(4, cpf);
-
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao atualizar aluno", e);
-        }
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void delete(String cpf) {
-        String sql = "DELETE FROM aluno WHERE cpf = ?";
+    public String getCpf() {
+        return cpf;
+    }
 
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-            stmt.setString(1, cpf);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao deletar aluno", e);
-        }
+    public String getPlano() {
+        return plano;
+    }
+
+    public void setPlano(String plano) {
+        this.plano = plano;
+    }
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", plano='" + plano + '\'' +
+                ", dataInicio='" + dataInicio + '\'' +
+                '}';
     }
 }
