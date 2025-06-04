@@ -1,83 +1,58 @@
-package src.dao;
+package src.model;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import src.model.Aula;
+public class Aula {
+    private int codigo;
+    private String nome;
+    private String horario;
+    private int capacidade;
 
-public class AulaDAO {
-    public void create(Aula aula) {
-        String sql = "INSERT INTO aula (nome, horario, capacidade) VALUES (?, ?, ?)";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-            stmt.setString(1, aula.getNome());
-            stmt.setString(2, aula.getHorario());
-            stmt.setInt(3, aula.getCapacidade());
-
-            stmt.executeUpdate();
-
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
-                    aula.setCodigo(rs.getInt(1));
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao criar aula", e);
-        }
+    public Aula(int codigo, String nome, String horario, int capacidade) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.horario = horario;
+        this.capacidade = capacidade;
     }
 
-    public List<Aula> readAll() {
-        String sql = "SELECT * FROM aula";
-        List<Aula> aulas = new ArrayList<>();
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Aula aula = new Aula(
-                        rs.getInt("codigo"),
-                        rs.getString("nome"),
-                        rs.getString("horario"),
-                        rs.getInt("capacidade"));
-                aulas.add(aula);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao ler aulas", e);
-        }
-
-        return aulas;
+    // Getters e Setters
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void update(Aula aula) {
-        String sql = "UPDATE aula SET nome = ?, horario = ?, capacidade = ? WHERE codigo = ?";
-
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, aula.getNome());
-            stmt.setString(2, aula.getHorario());
-            stmt.setInt(3, aula.getCapacidade());
-            stmt.setInt(4, aula.getCodigo());
-
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao atualizar aula", e);
-        }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public void delete(int codigo) {
-        String sql = "DELETE FROM aula WHERE codigo = ?";
+    public String getNome() {
+        return nome;
+    }
 
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-            stmt.setInt(1, codigo);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao deletar aula", e);
-        }
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Aula{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", horario='" + horario + '\'' +
+                ", capacidade=" + capacidade +
+                '}';
     }
 }
